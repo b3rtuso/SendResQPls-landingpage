@@ -814,7 +814,7 @@ export default function LandingPage() {
         }
 
         /* ─── RESPONSIVE BREAKPOINTS ─── */
-        @media (max-width: 960px) {
+        @media (max-width: 1024px) {
           .lp-hero {
             grid-template-columns: 1fr;
             min-height: auto;
@@ -822,11 +822,19 @@ export default function LandingPage() {
           .lp-hero-left {
             border-right: none;
             border-bottom: 1px solid var(--divider);
+            padding: clamp(40px, 6vw, 64px) clamp(20px, 5vw, 48px);
           }
           .lp-hero-right {
-            height: clamp(260px, 50vw, 420px);
             width: 100%;
-            border-right: none;
+            min-height: 480px;
+            padding: clamp(36px, 5vw, 60px) clamp(20px, 4vw, 40px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .lp-hero-right img {
+            max-height: 520px;
+            max-width: 80%;
           }
           .lp-how {
             grid-template-columns: 1fr;
@@ -834,6 +842,7 @@ export default function LandingPage() {
           .lp-how-cell {
             border-right: none;
             border-bottom: 1px solid var(--divider);
+            padding: clamp(36px, 5vw, 56px) clamp(20px, 4vw, 40px);
           }
           .lp-how-cell:last-child {
             border-bottom: none;
@@ -851,12 +860,38 @@ export default function LandingPage() {
         }
 
         @media (max-width: 640px) {
+          .lp-nav {
+            padding: 0 16px;
+            height: 60px;
+          }
           .lp-nav-location {
             display: none;
           }
+          .lp-nav-logo {
+            font-size: 14px;
+          }
+          .lp-nav-logo-img {
+            width: 28px;
+            height: 28px;
+          }
+          .lp-hero-left {
+            padding: 32px 18px;
+          }
           .lp-hero-headline {
-            font-size: clamp(34px, 11vw, 56px);
-            line-height: 1.0;
+            font-size: clamp(32px, 9.5vw, 46px);
+            line-height: 1.02;
+          }
+          .lp-hero-sub {
+            font-size: 14px;
+          }
+          .lp-hero-right {
+            min-height: 420px;
+            padding: 32px 16px;
+          }
+          .lp-hero-right img {
+            max-height: 420px;
+            max-width: 90%;
+            border-radius: 22px;
           }
           .lp-hero-ctas {
             flex-direction: column;
@@ -871,27 +906,66 @@ export default function LandingPage() {
             width: 100%;
             justify-content: center;
             text-align: center;
+            min-height: 48px;
+          }
+          .lp-ticker {
+            height: 40px;
+          }
+          .lp-ticker-item {
+            font-size: 10px;
+            padding: 0 16px;
+          }
+          .lp-how-cell {
+            padding: 28px 18px;
+          }
+          .lp-faq {
+            padding: 40px 18px;
+          }
+          .lp-faq-title {
+            font-size: clamp(24px, 7vw, 36px);
+          }
+          .lp-faq-pills {
+            flex-wrap: wrap;
+            gap: 6px;
+          }
+          .lp-faq-pill {
+            font-size: 11px;
+            padding: 4px 10px;
+          }
+          .lp-access-citizen {
+            padding: 32px 18px;
+          }
+          .lp-access-heading {
+            font-size: 26px;
           }
           .lp-footer {
             flex-direction: column;
             gap: 12px;
             height: auto;
-            padding: 20px clamp(16px, 4vw, 32px);
+            padding: 20px 18px;
             text-align: center;
           }
         }
 
-        @media (max-width: 420px) {
+        @media (max-width: 380px) {
           .lp-nav-shapes {
             display: none;
           }
           .lp-hero-headline {
-            font-size: 32px;
+            font-size: 28px;
           }
           .lp-hero-circle {
-            width: 44px;
-            height: 44px;
-            margin-bottom: 14px;
+            width: 36px;
+            height: 36px;
+            margin-bottom: 12px;
+          }
+          .lp-hero-right {
+            min-height: 360px;
+            padding: 24px 12px;
+          }
+          .lp-hero-right img {
+            max-height: 360px;
+            max-width: 95%;
           }
         }
       `}</style>
