@@ -146,15 +146,15 @@ export default function LandingPage() {
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-          --bg:      #0D1B2A;
-          --surface: #112236;
-          --red:     #E63946;
-          --yellow:  #F4D03F;
+          --bg:      #09162A;
+          --surface: #112442;
+          --red:     #E11D48;
+          --yellow:  #F59E0B;
           --blue:    #2563EB;
           --blue-dk: #1D4ED8;
           --white:   #FFFFFF;
           --text-muted: rgba(255,255,255,0.65);
-          --divider: rgba(255,255,255,0.12);
+          --divider: rgba(255,255,255,0.10);
           --font:    'Inter Tight', system-ui, sans-serif;
         }
 
@@ -388,7 +388,7 @@ export default function LandingPage() {
           gap: 10px;
           padding: 14px 28px;
           min-height: 48px;
-          background: #0D1B2A;
+          background: #09162A;
           color: #FFFFFF;
           font-family: var(--font);
           font-size: 14px;
@@ -402,7 +402,7 @@ export default function LandingPage() {
           white-space: nowrap;
           transition: background 0.15s linear, transform 0.1s ease;
         }
-        .btn-admin:hover { background: #1a2f45; }
+        .btn-admin:hover { background: #112442; }
         .btn-admin:active { transform: translateY(1px); }
 
         /* Hero right */
@@ -414,15 +414,19 @@ export default function LandingPage() {
           overflow: hidden;
           opacity: 0;
           transition: opacity 0.8s ease 0.3s;
-          background: #07111D;
+          background: radial-gradient(circle at center, rgba(37, 99, 235, 0.22) 0%, rgba(225, 29, 72, 0.12) 50%, #060F1D 100%);
+          padding: clamp(20px, 3.5vw, 40px);
         }
         .lp-hero-right.visible { opacity: 1; }
         .lp-hero-right img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+          width: auto;
+          max-width: 100%;
+          max-height: clamp(400px, 72vh, 640px);
+          object-fit: contain;
           object-position: center;
           display: block;
+          border-radius: 28px;
+          box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.12);
         }
 
         /* ─── TICKER ─── */
