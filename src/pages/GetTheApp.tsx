@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
    Page: GetTheApp (APK Download & Installation Guide)
    Palette: #0D1B2A (bg) · #E63946 (red) · #F4D03F (yellow) · #2563EB (blue) · #FFFFFF
    Font: Inter Tight
-   Zero border-radius. Zero gradient. Zero shadow. Zero em-dashes.
+   Zero border-radius. NNNNZero gradient. Zero shadow. Zero em-dashes.
 ─────────────────────────────────────────────────────────────────────────── */
 
 const APK_DOWNLOAD_URL = 'https://github.com/b3rtuso/SendResQPls-mobile/releases/latest/download/SendResQPls.apk';
