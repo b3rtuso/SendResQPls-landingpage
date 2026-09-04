@@ -146,15 +146,16 @@ export default function LandingPage() {
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-          --bg:      #09162A;
-          --surface: #112442;
+          --bg:      #0F1F38;
+          --surface: #172E54;
           --red:     #E11D48;
           --yellow:  #F59E0B;
           --blue:    #2563EB;
           --blue-dk: #1D4ED8;
+          --header-gradient: linear-gradient(160deg, #0F1F38 0%, #1D4ED8 60%, #2563EB 100%);
           --white:   #FFFFFF;
-          --text-muted: rgba(255,255,255,0.65);
-          --divider: rgba(255,255,255,0.10);
+          --text-muted: rgba(255,255,255,0.72);
+          --divider: rgba(255,255,255,0.12);
           --font:    'Inter Tight', system-ui, sans-serif;
         }
 
@@ -177,7 +178,7 @@ export default function LandingPage() {
           border-bottom: 1px solid var(--divider);
           position: sticky;
           top: 0;
-          background: var(--bg);
+          background: linear-gradient(160deg, #0F1F38 0%, #1D4ED8 60%, #2563EB 100%);
           z-index: 100;
         }
         .lp-nav-logo {
@@ -388,21 +389,21 @@ export default function LandingPage() {
           gap: 10px;
           padding: 14px 28px;
           min-height: 48px;
-          background: #09162A;
+          background: #0F1F38;
           color: #FFFFFF;
           font-family: var(--font);
           font-size: 14px;
           font-weight: 700;
           letter-spacing: 0.05em;
           text-transform: uppercase;
-          border: none;
+          border: 1px solid rgba(255, 255, 255, 0.18);
           border-radius: 0;
           cursor: pointer;
           text-decoration: none;
           white-space: nowrap;
           transition: background 0.15s linear, transform 0.1s ease;
         }
-        .btn-admin:hover { background: #112442; }
+        .btn-admin:hover { background: #172E54; }
         .btn-admin:active { transform: translateY(1px); }
 
         /* Hero right */
@@ -414,7 +415,7 @@ export default function LandingPage() {
           overflow: hidden;
           opacity: 0;
           transition: opacity 0.8s ease 0.3s;
-          background: radial-gradient(circle at center, rgba(37, 99, 235, 0.22) 0%, rgba(225, 29, 72, 0.12) 50%, #060F1D 100%);
+          background: radial-gradient(circle at center, rgba(37, 99, 235, 0.28) 0%, rgba(29, 78, 216, 0.15) 50%, #081223 100%);
           padding: clamp(20px, 3.5vw, 40px);
         }
         .lp-hero-right.visible { opacity: 1; }
@@ -692,12 +693,12 @@ export default function LandingPage() {
           20% {
             box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.9), 0 20px 60px rgba(37, 99, 235, 0.45), inset 0 0 50px rgba(37, 99, 235, 0.35);
             transform: scale(1.012);
-            background: #112948;
+            background: #1D4ED8;
           }
           50% {
             box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.6), 0 12px 40px rgba(37, 99, 235, 0.3), inset 0 0 35px rgba(37, 99, 235, 0.25);
             transform: scale(1.006);
-            background: #0f2440;
+            background: #172E54;
           }
           100% {
             box-shadow: 0 0 0 0 rgba(37, 99, 235, 0), inset 0 0 0 transparent;

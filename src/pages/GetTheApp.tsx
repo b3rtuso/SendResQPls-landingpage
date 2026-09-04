@@ -28,14 +28,14 @@ export default function GetTheApp() {
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-          --bg:      #0D1B2A;
-          --surface: #112236;
+          --bg:      #0F1F38;
+          --surface: #172E54;
           --red:     #E63946;
           --yellow:  #F4D03F;
           --blue:    #2563EB;
           --blue-dk: #1D4ED8;
           --white:   #FFFFFF;
-          --text-muted: rgba(255,255,255,0.6);
+          --text-muted: rgba(255,255,255,0.72);
           --divider: rgba(255,255,255,0.12);
           --font:    'Inter Tight', system-ui, sans-serif;
         }
@@ -58,7 +58,7 @@ export default function GetTheApp() {
           padding: 0 clamp(20px, 5vw, 72px);
           height: 64px;
           border-bottom: 1px solid var(--divider);
-          background: var(--bg);
+          background: linear-gradient(160deg, #0F1F38 0%, #1D4ED8 60%, #2563EB 100%);
           position: sticky;
           top: 0;
           z-index: 100;
