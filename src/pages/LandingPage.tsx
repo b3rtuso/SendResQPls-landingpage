@@ -152,7 +152,7 @@ export default function LandingPage() {
           --yellow:  #F59E0B;
           --blue:    #2563EB;
           --blue-dk: #1D4ED8;
-          --header-gradient: linear-gradient(160deg, #0F1F38 0%, #1D4ED8 60%, #2563EB 100%);
+          --header-bg: #0B132B;
           --white:   #FFFFFF;
           --text-muted: rgba(255,255,255,0.72);
           --divider: rgba(255,255,255,0.12);
@@ -178,7 +178,7 @@ export default function LandingPage() {
           border-bottom: 1px solid var(--divider);
           position: sticky;
           top: 0;
-          background: linear-gradient(160deg, #0F1F38 0%, #1D4ED8 60%, #2563EB 100%);
+          background: #0B132B;
           z-index: 100;
         }
         .lp-nav-logo {
