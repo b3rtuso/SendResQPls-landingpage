@@ -299,6 +299,30 @@ export default function GetTheApp() {
           text-transform: uppercase;
           color: var(--text-muted);
         }
+        .gta-footer-links {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .gta-footer-link {
+          background: none;
+          border: none;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: var(--text-muted);
+          cursor: pointer;
+          font-family: inherit;
+          transition: color 0.15s ease;
+        }
+        .gta-footer-link:hover {
+          color: var(--white);
+        }
+        .gta-footer-sep {
+          color: var(--divider);
+          font-size: 12px;
+        }
 
         /* ─── RESPONSIVE ─── */
         @media (max-width: 768px) {
@@ -452,6 +476,29 @@ export default function GetTheApp() {
           <span className="gta-footer-copy">
             &copy; 2026 MDRRMO Balayan, Batangas
           </span>
+          <div className="gta-footer-links">
+            <button
+              type="button"
+              className="gta-footer-link"
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                navigate('/terms-and-conditions');
+              }}
+            >
+              Terms &amp; Conditions
+            </button>
+            <span className="gta-footer-sep" aria-hidden="true">&bull;</span>
+            <button
+              type="button"
+              className="gta-footer-link"
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                navigate('/privacy-policy');
+              }}
+            >
+              Privacy Policy
+            </button>
+          </div>
           <div className="gta-nav-shapes" aria-hidden="true">
             <div className="gta-shape-circle" />
             <div className="gta-shape-square" />
