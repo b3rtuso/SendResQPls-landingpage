@@ -27,9 +27,20 @@ export default function LandingPage() {
   const [step3Visible, setStep3Visible] = useState(false);
   const [faqVisible, setFaqVisible] = useState(false);
   const [accessVisible, setAccessVisible] = useState(false);
+  const [legalVisible, setLegalVisible] = useState(false);
+  const [activeLegalTab, setActiveLegalTab] = useState<'terms' | 'privacy'>('terms');
   const [highlighted, setHighlighted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const highlightTimerRef = useRef<any>(null);
+
+  const scrollToLegal = (tab: 'terms' | 'privacy') => {
+    setActiveLegalTab(tab);
+    const el = document.getElementById('legal-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    setLegalVisible(true);
+  };
 
   // Hero Carousel State
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
@@ -92,6 +103,7 @@ export default function LandingPage() {
       { id: 'step-3', setter: setStep3Visible },
       { id: 'faq-section', setter: setFaqVisible },
       { id: 'access-section', setter: setAccessVisible },
+      { id: 'legal-section', setter: setLegalVisible },
     ];
 
     const observers = targets.map(({ id, setter }) => {
@@ -931,14 +943,180 @@ export default function LandingPage() {
           letter-spacing: 0.03em;
         }
 
+        /* ─── LEGAL SECTION ─── */
+        .lp-legal {
+          padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 72px);
+          border-bottom: 1px solid var(--divider);
+          background: var(--bg);
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1);
+        }
+        .lp-legal.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .lp-legal-label {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--text-muted);
+          margin-bottom: 16px;
+        }
+        .lp-legal-label-square {
+          width: 10px;
+          height: 10px;
+          background: var(--yellow);
+          flex-shrink: 0;
+        }
+        .lp-legal-heading {
+          font-size: clamp(28px, 3.5vw, 48px);
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: -0.02em;
+          line-height: 1.08;
+          color: var(--white);
+          margin-bottom: 12px;
+        }
+        .lp-legal-sub {
+          font-size: 15px;
+          line-height: 1.6;
+          color: var(--text-muted);
+          max-width: 680px;
+          margin-bottom: 32px;
+        }
+        .lp-legal-tabs {
+          display: inline-flex;
+          background: var(--surface);
+          border: 1px solid var(--divider);
+          padding: 4px;
+          gap: 4px;
+          margin-bottom: 32px;
+          flex-wrap: wrap;
+        }
+        .lp-legal-tab-btn {
+          padding: 10px 22px;
+          font-size: 13px;
+          font-weight: 800;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          font-family: inherit;
+          border: none;
+          cursor: pointer;
+          background: transparent;
+          color: var(--text-muted);
+          transition: all 0.2s ease;
+        }
+        .lp-legal-tab-btn:hover {
+          color: var(--white);
+        }
+        .lp-legal-tab-btn.active {
+          background: var(--blue);
+          color: var(--white);
+          box-shadow: 0 2px 10px rgba(37,99,235,0.4);
+        }
+        .lp-legal-banner-red {
+          background: rgba(225, 29, 72, 0.12);
+          border: 1px solid var(--red);
+          border-left: 5px solid var(--red);
+          padding: 16px 20px;
+          margin-bottom: 28px;
+        }
+        .lp-legal-banner-blue {
+          background: rgba(37, 99, 235, 0.12);
+          border: 1px solid var(--blue);
+          border-left: 5px solid var(--blue);
+          padding: 16px 20px;
+          margin-bottom: 28px;
+        }
+        .lp-legal-banner-title {
+          font-size: 13px;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: var(--white);
+          margin-bottom: 4px;
+        }
+        .lp-legal-banner-text {
+          font-size: 13px;
+          line-height: 1.55;
+          color: var(--text-muted);
+        }
+        .lp-legal-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 20px;
+        }
+        .lp-legal-card {
+          background: var(--surface);
+          border: 1px solid var(--divider);
+          padding: 24px;
+          transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .lp-legal-card:hover {
+          border-color: rgba(255,255,255,0.28);
+          transform: translateY(-2px);
+        }
+        .lp-legal-card-num {
+          font-size: 11px;
+          font-weight: 800;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--yellow);
+          margin-bottom: 10px;
+        }
+        .lp-legal-card-title {
+          font-size: 17px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: -0.01em;
+          color: var(--white);
+          margin-bottom: 10px;
+        }
+        .lp-legal-card-body {
+          font-size: 13.5px;
+          line-height: 1.6;
+          color: var(--text-muted);
+        }
+        .lp-footer-links {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .lp-footer-link {
+          background: none;
+          border: none;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: var(--text-muted);
+          cursor: pointer;
+          font-family: inherit;
+          transition: color 0.15s ease;
+        }
+        .lp-footer-link:hover {
+          color: var(--white);
+        }
+        .lp-footer-sep {
+          color: var(--divider);
+          font-size: 12px;
+        }
+
         /* ─── FOOTER ─── */
         .lp-footer {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 0 clamp(20px, 5vw, 72px);
-          height: 56px;
+          padding: 16px clamp(20px, 5vw, 72px);
+          min-height: 56px;
           border-top: 1px solid var(--divider);
+          flex-wrap: wrap;
+          gap: 16px;
         }
         .lp-footer-copy {
           font-size: 12px;
@@ -1396,11 +1574,186 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* ─── LEGAL & PRIVACY SECTION ─── */}
+        <section id="legal-section" className={`lp-legal ${legalVisible ? 'visible' : ''}`}>
+          <div className="lp-legal-label">
+            <div className="lp-legal-label-square" aria-hidden="true" />
+            04 / Statutory Compliance &amp; Transparency
+          </div>
+          <h2 className="lp-legal-heading">Terms &amp; Privacy</h2>
+          <p className="lp-legal-sub">
+            Official operational governance and data privacy frameworks mandated by MDRRMO Balayan under Republic Act No. 10121 and Republic Act No. 10173.
+          </p>
+
+          {/* Tabs switcher */}
+          <div className="lp-legal-tabs" role="tablist">
+            <button
+              type="button"
+              className={`lp-legal-tab-btn ${activeLegalTab === 'terms' ? 'active' : ''}`}
+              onClick={() => setActiveLegalTab('terms')}
+              role="tab"
+              aria-selected={activeLegalTab === 'terms'}
+            >
+              Terms &amp; Conditions
+            </button>
+            <button
+              type="button"
+              className={`lp-legal-tab-btn ${activeLegalTab === 'privacy' ? 'active' : ''}`}
+              onClick={() => setActiveLegalTab('privacy')}
+              role="tab"
+              aria-selected={activeLegalTab === 'privacy'}
+            >
+              Privacy Policy
+            </button>
+          </div>
+
+          {/* Panel: Terms & Conditions */}
+          {activeLegalTab === 'terms' && (
+            <div>
+              <div className="lp-legal-banner-red">
+                <div className="lp-legal-banner-title">⚠️ Anti-Hoax Warning: Presidential Decree No. 1727</div>
+                <div className="lp-legal-banner-text">
+                  Filing false, staged, or malicious emergency reports is a severe criminal offense punishable by up to 5 years imprisonment, civil liability for municipal dispatch expenses, and permanent platform blacklisting.
+                </div>
+              </div>
+
+              <div className="lp-legal-grid">
+                <div className="lp-legal-card">
+                  <div className="lp-legal-card-num">01 / Mandate</div>
+                  <div className="lp-legal-card-title">Official Municipal Platform</div>
+                  <div className="lp-legal-card-body">
+                    SendResQPls is the designated emergency reporting service authorized by the Municipal Disaster Risk Reduction and Management Office (MDRRMO Balayan) under RA 10121.
+                  </div>
+                </div>
+
+                <div className="lp-legal-card">
+                  <div className="lp-legal-card-num">02 / Hotlines</div>
+                  <div className="lp-legal-card-title">Immediate Life Safety</div>
+                  <div className="lp-legal-card-body">
+                    This digital app is an auxiliary dispatch channel. For immediate life-or-death crises or unstable cellular reception, citizens must dial <strong>Hotline 911</strong> or MDRRMO directly at <strong>0917-123-4567</strong>.
+                  </div>
+                </div>
+
+                <div className="lp-legal-card">
+                  <div className="lp-legal-card-num">03 / Integrity</div>
+                  <div className="lp-legal-card-title">Authentic User Details</div>
+                  <div className="lp-legal-card-body">
+                    Users agree to provide truthful legal names and working mobile telephone numbers during sign-up to enable swift on-scene identity validation by dispatchers.
+                  </div>
+                </div>
+
+                <div className="lp-legal-card">
+                  <div className="lp-legal-card-num">04 / Media</div>
+                  <div className="lp-legal-card-title">GPS &amp; Scene Evidence</div>
+                  <div className="lp-legal-card-body">
+                    Report submission captures device GPS coordinates and scene photographs. Users grant MDRRMO an irrevocable operational license to share evidence with responding field teams.
+                  </div>
+                </div>
+
+                <div className="lp-legal-card">
+                  <div className="lp-legal-card-num">05 / Triage</div>
+                  <div className="lp-legal-card-title">Inter-Agency Deployment</div>
+                  <div className="lp-legal-card-body">
+                    Incidents are prioritized by severity and dispatched to the Bureau of Fire Protection (BFP), Philippine National Police (PNP), RHU Medical, Engineering, or MDRRMO Rescue.
+                  </div>
+                </div>
+
+                <div className="lp-legal-card">
+                  <div className="lp-legal-card-num">06 / Jurisdiction</div>
+                  <div className="lp-legal-card-title">Philippine Law</div>
+                  <div className="lp-legal-card-body">
+                    These Terms are governed exclusively by the laws of the Republic of the Philippines, with exclusive judicial venue in the courts of the Province of Batangas.
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Panel: Privacy Policy */}
+          {activeLegalTab === 'privacy' && (
+            <div>
+              <div className="lp-legal-banner-blue">
+                <div className="lp-legal-banner-title">🛡️ Republic Act No. 10173 (Data Privacy Act of 2012)</div>
+                <div className="lp-legal-banner-text">
+                  Personal data collected through SendResQPls is processed exclusively for emergency response coordination, life-safety triage, and official disaster analytics. We uphold strict statutory confidentiality.
+                </div>
+              </div>
+
+              <div className="lp-legal-grid">
+                <div className="lp-legal-card">
+                  <div className="lp-legal-card-num">01 / Data Scope</div>
+                  <div className="lp-legal-card-title">Information Collected</div>
+                  <div className="lp-legal-card-body">
+                    Full name, contact phone number, verified email address, incident descriptions, photos, and precise GPS coordinates captured at the moment of report transmission.
+                  </div>
+                </div>
+
+                <div className="lp-legal-card">
+                  <div className="lp-legal-card-num">02 / Purpose</div>
+                  <div className="lp-legal-card-title">Life-Safety Dispatch</div>
+                  <div className="lp-legal-card-body">
+                    Information is used exclusively to triage emergencies, route rescue vehicles to the exact coordinates, transmit live status updates to citizens, and maintain municipal logs.
+                  </div>
+                </div>
+
+                <div className="lp-legal-card">
+                  <div className="lp-legal-card-num">03 / Protection</div>
+                  <div className="lp-legal-card-title">Zero Commercial Sale</div>
+                  <div className="lp-legal-card-body">
+                    MDRRMO Balayan strictly prohibits selling, trading, leasing, or monetizing personal citizen information with commercial advertisers or marketing data brokers.
+                  </div>
+                </div>
+
+                <div className="lp-legal-card">
+                  <div className="lp-legal-card-num">04 / Security</div>
+                  <div className="lp-legal-card-title">Encrypted Architecture</div>
+                  <div className="lp-legal-card-body">
+                    All network traffic is encrypted via TLS 1.3. User credentials use bcrypt hashing, and database records (Supabase) and media (Cloudinary) enforce role-based access control.
+                  </div>
+                </div>
+
+                <div className="lp-legal-card">
+                  <div className="lp-legal-card-num">05 / Rights</div>
+                  <div className="lp-legal-card-title">Citizen Data Rights</div>
+                  <div className="lp-legal-card-body">
+                    Under RA 10173, registered users hold the right to be informed, access personal records, correct inaccuracies, and lodge complaints with the National Privacy Commission.
+                  </div>
+                </div>
+
+                <div className="lp-legal-card">
+                  <div className="lp-legal-card-num">06 / DPO Contact</div>
+                  <div className="lp-legal-card-title">Data Protection Office</div>
+                  <div className="lp-legal-card-body">
+                    MDRRMO Balayan, Balayan Government Center, Plaza Rizal, Balayan, Batangas. Official inquiries: <strong>mdrrmo.balayan@gmail.com</strong>.
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </section>
+
         {/* ─── FOOTER ─── */}
         <footer className="lp-footer">
           <span className="lp-footer-copy">
             &copy; 2026 MDRRMO Balayan, Batangas
           </span>
+          <div className="lp-footer-links">
+            <button
+              type="button"
+              className="lp-footer-link"
+              onClick={() => scrollToLegal('terms')}
+            >
+              Terms &amp; Conditions
+            </button>
+            <span className="lp-footer-sep" aria-hidden="true">&bull;</span>
+            <button
+              type="button"
+              className="lp-footer-link"
+              onClick={() => scrollToLegal('privacy')}
+            >
+              Privacy Policy
+            </button>
+          </div>
           <div className="lp-footer-shapes" aria-hidden="true">
             <div className="lp-shape-circle" />
             <div className="lp-shape-square" />

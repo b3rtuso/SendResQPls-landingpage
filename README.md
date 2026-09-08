@@ -1,4 +1,4 @@
-﻿# SendResQPls — Landing Page
+# SendResQPls — Landing Page
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)
@@ -34,6 +34,7 @@ The primary marketing surface, structured around a single scroll journey:
 | **How It Works** | 3-step visual walkthrough (●▲■ iconography) with scroll-triggered reveal animations |
 | **FAQ** | Accordion-style frequently asked questions |
 | **Access Portal** | Dual CTA — citizen app download prompt + admin login link |
+| **Terms & Privacy** | Dedicated legal section with interactive tab switcher for Terms & Conditions (PD 1727, hotlines, mandate) and Privacy Policy (RA 10173 data privacy rights) |
 
 ### `/get-the-app` — Download Page
 
