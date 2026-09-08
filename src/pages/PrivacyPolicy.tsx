@@ -114,7 +114,7 @@ const privacyData: PrivacyItem[] = [
 
 export default function PrivacyPolicy() {
   const navigate = useNavigate();
-  const [openItems, setOpenItems] = useState<number[]>([0, 1, 2]);
+  const [openItems, setOpenItems] = useState<number[]>([]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
