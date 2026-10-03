@@ -65,9 +65,10 @@ const privacyData: PrivacyItem[] = [
     title: 'Authorized Inter-Agency Sharing and Sub-processors',
     paragraphs: [
       'Emergency Responder Units: Incident location, descriptions, and uploaded media are securely dispatched to operational response units including Bureau of Fire Protection (BFP Balayan), Philippine National Police (PNP Balayan), Municipal Health Office (MHO), and Balayan Rescue Units.',
-      'Technical Sub-processors: Data transmission leverages industry-standard infrastructure providers bound by rigorous data processing agreements: Supabase (encrypted database storage), Cloudinary (secure media hosting), Firebase by Google (push notification relay), and Brevo (transactional status emails).',
+      'Technical Sub-processors: Data transmission leverages industry-standard infrastructure providers bound by rigorous data processing agreements: Supabase (encrypted database storage), Cloudinary (secure media hosting), Firebase by Google (push notification relay), Brevo (transactional status emails), and Google Maps Platform (reverse geocoding of GPS coordinates to barangay names).',
+      'AI-Assisted Triage: Incident photographs submitted by users are processed by Google Cloud AI (Gemini) exclusively to classify disaster categories and calculate urgency scores, assisting human dispatchers in prioritizing emergency responses. Your data is never used to train public AI models.',
     ],
-    pills: ['BFP Fire Unit', 'PNP Police Unit', 'MHO Ambulance', 'Encrypted Sub-processors'],
+    pills: ['BFP Fire Unit', 'PNP Police Unit', 'MHO Ambulance', 'Google Gemini AI Triage', 'Google Maps Geocoding', 'Encrypted Sub-processors'],
   },
   {
     num: '06',
@@ -96,9 +97,9 @@ const privacyData: PrivacyItem[] = [
     title: 'Data Subject Rights Under Republic Act 10173',
     paragraphs: [
       'As a registered citizen, you possess statutory rights under the Data Privacy Act of 2012, including: the Right to be Informed, Right to Access your records, Right to Rectification of inaccurate information, Right to Erasure or Blocking, and Right to Damages for substantiated privacy violations.',
-      'To exercise your privacy rights or request data copies, submit a formal written inquiry to the Data Protection Officer at the municipal contact coordinates below.',
+      'To exercise your privacy rights or request data copies, submit a formal Data Subject Access Request (DSAR) online at https://app.termly.io/dsar/32ff856d-e553-49a0-9ebe-6741d9f6f7f4 or email sendresqpls@gmail.com.',
     ],
-    pills: ['Right to Access', 'Right to Rectification', 'Right to Erasure', 'Right to Damages'],
+    pills: ['Right to Access', 'Right to Rectification', 'Right to Erasure', 'Right to Damages', 'Submit DSAR Online'],
   },
   {
     num: '09',
@@ -106,9 +107,9 @@ const privacyData: PrivacyItem[] = [
     title: 'Data Protection Officer (DPO) and Institutional Contact',
     paragraphs: [
       'Municipal Disaster Risk Reduction and Management Office (MDRRMO Balayan), Government Center, Plaza Rizal, Balayan, Batangas 4213, Philippines.',
-      'Designated Privacy Contact: Data Protection Compliance Desk. Official Email: mdrrmo.balayan@gmail.com. Emergency Landline: (043) 417-2111. Official Hotline: 0917-123-4567.',
+      'Designated Privacy Contact: Data Protection Compliance Desk. Official Email: sendresqpls@gmail.com. Emergency Landline: (043) 417-2111. Official Hotline: 0917-123-4567.',
     ],
-    pills: ['Plaza Rizal, Balayan', 'mdrrmo.balayan@gmail.com', 'Emergency Hotline: 0917-123-4567'],
+    pills: ['Plaza Rizal, Balayan', 'sendresqpls@gmail.com', 'Emergency Hotline: 0917-123-4567'],
   },
 ];
 
