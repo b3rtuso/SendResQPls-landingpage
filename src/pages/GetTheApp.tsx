@@ -389,17 +389,17 @@ export default function GetTheApp() {
         <section className="gta-hero">
           <div className="gta-hero-eyebrow">
             <div className="gta-hero-eyebrow-sq" aria-hidden="true" />
-            Android Application Package (APK)
+            Citizen Application (PWA & APK)
           </div>
 
           <h1 className={`gta-hero-title ${mounted ? 'visible' : ''}`}>
-            Install SendResQPls on Android
+            Get SendResQPls
           </h1>
 
           <hr className={`gta-hero-rule ${mounted ? 'visible' : ''}`} />
 
           <p className={`gta-hero-desc ${mounted ? 'visible' : ''}`}>
-            The citizen emergency reporting system is exclusively available as a native Android application. Download the official package directly below to get started.
+            Access the citizen emergency reporting system as an installable Progressive Web App (PWA) on any browser, or download the official Android package (APK).
           </p>
 
           <div className={`gta-hero-actions ${mounted ? 'visible' : ''}`}>

@@ -1419,7 +1419,7 @@ export default function LandingPage() {
             >
               Get It Here
             </button>
-            <p className="lp-access-sub">Available for Android devices (APK)</p>
+            <p className="lp-access-sub">Available as PWA and Android APK</p>
           </div>
         </section>
 
